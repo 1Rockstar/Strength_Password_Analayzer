@@ -1,9 +1,15 @@
-import getpass
 import random
 import string
 
-def hidden_input(prompt="Enter a password: "):
-    return getpass.getpass(prompt)
+def confirm_input(prompt="Enter a password: "):
+    pwd1 = input(prompt)
+    pwd2 = input("Re-enter the password to confirm: ")
+
+    if pwd1 == pwd2:
+        return pwd1
+    else:
+        print("⚠️ Passwords did not match. Please try again.")
+        return confirm_input(prompt)
 
 def generate_strong_password(length=12):
     # Ensure at least one of each category
